@@ -1,0 +1,7 @@
+{
+  "name": "beaver-stock-info",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
