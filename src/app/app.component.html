@@ -1,3 +1,60 @@
-<ion-app>
-  <ion-router-outlet></ion-router-outlet>
-</ion-app>
+<ion-header>
+  <ion-toolbar>
+    <ion-title> Beaver - Stock Info </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!--  <div *ngIf="dataStock">
+    <p>Address1: {{ dataStock.address1 }}</p>
+    <p>Current price: {{ dataStock.currentPrice }}</p>
+    <p>Target high price: {{ dataStock.targetHighPrice }}</p>
+    <p>Volume: {{ dataStock.volume }}</p>
+    <p>Website: {{ dataStock.website }}</p>
+  </div>
+  <br />
+  <div>
+    <p>Address1: {{ responseUrl4.data.address1 }}</p>
+  </div>
+  <br />
+  <div *ngIf="dataStock2">
+    <p>exchDisp: {{ dataStock2.exchDisp }}</p>
+    <p>exchange: {{ dataStock2.exchange }}</p>
+    <p>industry: {{ dataStock2.industry }}</p>
+    <p>longname: {{ dataStock2.longname }}</p>
+    <p>sector: {{ dataStock2.sector }}</p>
+    <p>shortname: {{ dataStock2.shortname }}</p>
+    <p>symbol: {{ dataStock2.symbol }}</p>
+  </div> -->
+  <ion-card *ngIf="priceStock">
+    <ion-card-header>
+      <ion-card-title
+        >{{ searchStock.quotes[0].shortname }} ({{
+          optionsStock.underlyingSymbol
+        }}) <br />{{ optionsStock.quote.regularMarketChange }} ({{
+          optionsStock.quote.regularMarketChangePercent
+        }}%)</ion-card-title
+      >
+      <ion-card-subtitle
+        >{{ optionsStock.quote.fullExchangeName }},
+        {{ optionsStock.quote.quoteSourceName }}, Currency:
+        {{ optionsStock.quote.currency }}</ion-card-subtitle
+      >
+    </ion-card-header>
+
+    <ion-card-content>
+      <div>
+        <p>Previous Close: ${{ priceStock.regularMarketPreviousClose.raw }}</p>
+        <p>Market Open: ${{ priceStock.regularMarketOpen.raw }}</p>
+        <p>Market Price: ${{ priceStock.regularMarketPrice.raw }}</p>
+        <p>Day Range: ${{ optionsStock.quote.regularMarketDayRange }}</p>
+        <p>
+          Fifty Two Week Range: ${{ optionsStock.quote.fiftyTwoWeekLow }} - ${{
+            optionsStock.quote.fiftyTwoWeekHigh
+          }}
+        </p>
+        <p>Volume: {{ optionsStock.quote.regularMarketVolume }}</p>
+      </div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
